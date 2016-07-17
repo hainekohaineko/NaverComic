@@ -1,5 +1,5 @@
 # NaverComic
-Naver webtoon parser
+python http client for Naver Webtoon service(http://comic.naver.com)
 
 ## How to use?
 맨 아래줄의 `getPage(titleId, weekDay, max_pages)`를
@@ -8,6 +8,12 @@ Naver webtoon parser
  * `max_pages` : 1화에서 `max_pages`화까지 파싱
 
 로 바꾸면 끝
+
+## TODO
+* 웹툰 id 검색
+* 에피소드 제목 출력
+  * 특정 에피소드 제목
+  * 전체 에피소드 제목
 
 ## License
 ```
