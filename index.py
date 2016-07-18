@@ -1,3 +1,4 @@
+# -*- coding: utf8 -*-
 import requests
 from bs4 import BeautifulSoup
 def getPage(titleId, weekDay, max_pages):
@@ -8,10 +9,16 @@ def getPage(titleId, weekDay, max_pages):
         source_code = requests.get(url)
         plain_text = source_code.text
         soup = BeautifulSoup(plain_text, 'lxml')
+        img_link = []
         for link in soup.select('li > p > img'):
-            imgLink = str(link.get('src')) + str(link.get('data-lazy-src'))# data-lazy-src
-            print(imgLink)
+            img_link.append(link.get('src'))
+            img_link.append(link.get('data-lazy-src'))
         pages += 1
+    print img_link
+def is_bg_transparency(link):
+    import re
+    regex = re.compile('((http)?:\/\/[^ ]+\.(png))(?:\?([^ ]+))?')
+    is_bool = regex.match(link)
+    return is_bool
 # example : 노네임드 1화까지 파싱
-# getPage(460688, 'sat', 1)
-getPage(titleId, weekDay, max_pages)
+getPage(460688, 'sat', 1)
