@@ -18,11 +18,11 @@ def getPage(titleId, weekDay, max_pages):
             if not img_lazy == 'None':
                 img_link.append(img_lazy)
         pages += 1
-    print img_link
+    return img_link
 def isBgTransparency(link):
     import re
     regex = re.compile('((http)?:\/\/[^ ]+\.(png))')
     is_bool = regex.match(link)
     return is_bool
 # example : 노네임드 1화까지 파싱
-getPage(460688, 'sat', 1)
+print(getPage(460688, 'sat', 1))
